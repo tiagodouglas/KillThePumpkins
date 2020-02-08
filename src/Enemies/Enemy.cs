@@ -10,14 +10,12 @@ public class Enemy : KinematicBody2D
 	public override void _Ready()
 	{
 		Player = (KinematicBody2D)GetParent().GetParent().GetNode("Player");
-	}
 
+	}
 
 	public override void _PhysicsProcess(float delta)
 	{
 		var direction = (Player.GlobalPosition - GlobalPosition).Normalized();
 		MoveAndCollide(direction * Speed * delta);
 	}
-
-
 }

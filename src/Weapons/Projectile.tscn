@@ -9,6 +9,8 @@ radius = 11.3138
 [node name="Projectile" type="RigidBody2D"]
 collision_layer = 8
 collision_mask = 6
+contacts_reported = 1
+contact_monitor = true
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]

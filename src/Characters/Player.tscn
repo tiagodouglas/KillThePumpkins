@@ -1,19 +1,21 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/Characters/PlayerAnimation.tscn" type="PackedScene" id=1]
-[ext_resource path="res://src/Characters/Player.cs" type="Script" id=3]
+[ext_resource path="res://src/Scripts/PlayerAnimation.cs" type="Script" id=2]
+[ext_resource path="res://src/Scripts/Player.cs" type="Script" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 188.874
 height = 197.72
 
 [node name="Player" type="KinematicBody2D"]
+scale = Vector2( 0.15, 0.15 )
 collision_mask = 2
 script = ExtResource( 3 )
 
 [node name="PlayerAnimation" parent="." instance=ExtResource( 1 )]
 position = Vector2( 1.948, -1.948 )
-frame = 1
+script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -21.8718, 24.4569 )
@@ -23,3 +25,4 @@ shape = SubResource( 1 )
 position = Vector2( -27.8184, 12.3636 )
 current = true
 zoom = Vector2( 0.7, 0.7 )
+[connection signal="Animate" from="." to="PlayerAnimation" method="_on_Player_Animate"]
